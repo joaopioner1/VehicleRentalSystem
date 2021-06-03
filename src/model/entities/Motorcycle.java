@@ -1,5 +1,12 @@
 package model.entities;
 
-public class Motorcycle {
+import java.awt.Color;
 
+public class Motorcycle extends Vehicle {
+
+	public Motorcycle(Color color, String model, Double valuePerDay) {
+		super(color, model, valuePerDay);
+	}
+	
+	
 }
