@@ -5,43 +5,52 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-import model.Enum.Color;
+import model.Enum.ColorEnum;
+import model.entities.Car;
+import model.entities.CarRental;
+import model.entities.Motorcycle;
+import model.entities.MotorcycleRental;
 import model.entities.Vehicle;
 
 public class Program {
-	
+
 	public static void main(String[] args) {
-		//Author: Joao Vitor Souza Pioner | Date: 03/06/2021
-		//Last edition: 
+		// Author: Joao Vitor Souza Pioner | Date: 03/06/2021
+		// Last edition:
 		Scanner in = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		Vehicle veh = new Vehicle();
-		
+
 		System.out.println("#Rental vehicle system#");
 		try {
-			System.out.print("Which vehicle would you like to rent (M/C)? ");//Car or Motorcycle
+			System.out.print("Which vehicle would you like to rent (M/C)? ");// Car or Motorcycle
 			Character typeVehicle = in.next().charAt(0);
 			System.out.print("Color: ");
-			Color color = Color.valueOf(in.next());
+			ColorEnum color = ColorEnum.valueOf(in.next());
 			System.out.print("Model: ");
 			String model = in.next();
 			System.out.print("Initial date (DD/MM/YYYY HH:MM): ");
 			Date initalDate = sdf.parse(in.next());
 			System.out.print("End date (DD/MM/YYYY HH:MM): ");
 			Date endDate = sdf.parse(in.next());
+			if (veh.checkType(typeVehicle) == true) {
+				MotorcycleRental mr = new MotorcycleRental(initalDate, endDate, new Motorcycle(color, model));
+			} else {
+				CarRental cr = new CarRental(initalDate, endDate, new Car(color, model));
+				
+				System.out.print("Enter price per hour: ");
+				Double pricePerHour = in.nextDouble();
+				System.out.print("Enter price per day: ");
+				Double pricePerDay = in.nextDouble();
+			}
 		} 
-		catch(ParseException e) {
+		catch (ParseException e) {
 			System.out.println("ERROR: " + e.getMessage());
-		}
+		} 
 		catch (IllegalArgumentException e) {
-			System.out.println("ERROR: probably you typed a wrong value at the attribute color."
-					+ "\nBLACK, WHITE, GRAY, RED.");
+			System.out.println(
+					"ERROR: probably you typed a wrong value at the attribute color." + "\nBLACK, WHITE, GRAY, RED.");
 		}
 		in.close();
 	}
 }
-/*if (veh.processInfo(typeVehicle) == true) {
-				
-			} else {
-				
-			}*/

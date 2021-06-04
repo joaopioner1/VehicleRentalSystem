@@ -3,11 +3,11 @@ package model.service;
 public class RentalService {
 	
 	private Double valuePerDay;
-	private Double valuePerMonth;
+	private Double valuePerHour;
 	
-	public RentalService(Double valuePerDay, Double valuePerMonth) {
+	public RentalService(Double valuePerDay, Double valuePerHour) {
 		this.valuePerDay = valuePerDay;
-		this.valuePerMonth = valuePerMonth;
+		this.valuePerHour = valuePerHour;
 	}
 	
 	public Double getValuePerDay() {
@@ -18,11 +18,11 @@ public class RentalService {
 		this.valuePerDay = valuePerDay;
 	}
 	
-	public Double getValuePerMonth() {
-		return valuePerMonth;
+	public Double getValuePerHour() {
+		return valuePerHour;
 	}
 	
-	public void setValuePerMonth(Double valuePerMonth) {
-		this.valuePerMonth = valuePerMonth;
+	public void setValuePerHour(Double valuePerHour) {
+		this.valuePerHour = valuePerHour;
 	}
 }

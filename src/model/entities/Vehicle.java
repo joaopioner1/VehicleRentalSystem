@@ -1,26 +1,25 @@
 package model.entities;
 
-import java.awt.Color;
-
+import model.Enum.ColorEnum;
 import model.exceptions.InvalidVehicle;
 
 public class Vehicle {
 	
-	private Color color;
+	private ColorEnum color;
 	private String model;
 	
 	public Vehicle() {
 	}
 	
-	public Vehicle(Color color, String model) {
+	public Vehicle(ColorEnum color, String model) {
 		this.color = color;
 		this.model = model;
 	}
 	
-	public Color getColor() {
+	public ColorEnum getColor() {
 		return color;
 	}
-	public void setColor(Color color) {
+	public void setColor(ColorEnum color) {
 		this.color = color;
 	}
 	public String getModel() {
@@ -30,7 +29,7 @@ public class Vehicle {
 		this.model = model;
 	}
 	
-	public boolean processInfo(Character character) {
+	public boolean checkType(Character character) {
 		if (character == 'M') {
 			return true;
 		} else if (character == 'C') {

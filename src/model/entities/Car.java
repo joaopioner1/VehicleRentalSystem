@@ -1,10 +1,10 @@
 package model.entities;
 
-import java.awt.Color;
+import model.Enum.ColorEnum;
 
 public class Car extends Vehicle {
 	
-	public Car(Color color, String model) {
+	public Car(ColorEnum color, String model) {
 		super(color, model);
 	}
 	

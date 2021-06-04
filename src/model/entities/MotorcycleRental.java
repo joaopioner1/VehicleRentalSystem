@@ -9,9 +9,10 @@ public class MotorcycleRental {
 	
 	private Motorcycle moto;
 
-	public MotorcycleRental(Date start, Date finish) {
+	public MotorcycleRental(Date start, Date finish, Motorcycle moto) {
 		this.start = start;
 		this.finish = finish;
+		this.moto = moto;
 	}
 	
 	public Date getStart() {
