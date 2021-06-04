@@ -1,5 +1,9 @@
 package model.exceptions;
 
-public class InvalidVehicle {
-
+public class InvalidVehicle extends RuntimeException {
+	private static final long serialVersionUID = 1L;
+	
+	public InvalidVehicle(String msg) {
+		super(msg);
+	}
 }
