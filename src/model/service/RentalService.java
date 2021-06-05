@@ -5,6 +5,7 @@ public class RentalService {
 	private Double valuePerDay;
 	private Double valuePerHour;
 	
+	
 	public RentalService(Double valuePerDay, Double valuePerHour) {
 		this.valuePerDay = valuePerDay;
 		this.valuePerHour = valuePerHour;

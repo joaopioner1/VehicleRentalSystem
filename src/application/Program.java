@@ -11,6 +11,7 @@ import model.entities.CarRental;
 import model.entities.Motorcycle;
 import model.entities.MotorcycleRental;
 import model.entities.Vehicle;
+import model.service.RentalService;
 
 public class Program {
 
@@ -42,14 +43,15 @@ public class Program {
 				Double pricePerHour = in.nextDouble();
 				System.out.print("Enter price per day: ");
 				Double pricePerDay = in.nextDouble();
+				
+				RentalService cs = new RentalService(pricePerDay, pricePerHour);
 			}
 		} 
 		catch (ParseException e) {
 			System.out.println("ERROR: " + e.getMessage());
 		} 
 		catch (IllegalArgumentException e) {
-			System.out.println(
-					"ERROR: probably you typed a wrong value at the attribute color." + "\nBLACK, WHITE, GRAY, RED.");
+			System.out.println("ERROR: probably you typed a wrong value at the attribute color." + "\nBLACK, WHITE, GRAY, RED.");
 		}
 		in.close();
 	}
