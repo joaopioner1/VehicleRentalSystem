@@ -11,6 +11,7 @@ import model.entities.CarRental;
 import model.entities.Motorcycle;
 import model.entities.MotorcycleRental;
 import model.entities.Vehicle;
+import model.service.CarService;
 import model.service.RentalService;
 
 public class Program {
@@ -44,7 +45,7 @@ public class Program {
 				System.out.print("Enter price per day: ");
 				Double pricePerDay = in.nextDouble();
 				
-				RentalService cs = new RentalService(pricePerDay, pricePerHour);
+				RentalService cs = new RentalService(pricePerDay, pricePerHour, new CarService());
 			}
 		} 
 		catch (ParseException e) {
