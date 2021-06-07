@@ -37,8 +37,25 @@ public class Program {
 			System.out.print("End date (DD/MM/YYYY HH:ss): ");
 			Date endDate = sdf.parse(in.nextLine());
 			if (veh.checkType(typeVehicle) == true) {
+				
 				MotorcycleRental mr = new MotorcycleRental(initalDate, endDate, new Motorcycle(color, model));
+				
+				System.out.print("Enter price per hour: ");
+				Double pricePerHour = in.nextDouble();
+				System.out.print("Enter price per day: "); 
+				Double pricePerDay = in.nextDouble();
+				
+				RentalService cs = new RentalService(pricePerDay, pricePerHour, new CarService());
+				
+				cs.calcValueMotRent(mr);
+				
+				System.out.println("\n#Motocycle rent data:");
+				System.out.println("Model: " + model);
+				System.out.println("Start date: " + sdf.format(initalDate));
+				System.out.println("End date: " + sdf.format(endDate));
+				System.out.println("\nTotal R$ " + String.format("%.2f", cs.calcValueMotRent(mr)));
 			} else {
+				
 				CarRental cr = new CarRental(initalDate, endDate, new Car(color, model));
 				
 				System.out.print("Enter price per hour: ");
@@ -50,7 +67,7 @@ public class Program {
 				
 				cs.calcValueCarRent(cr);
 				
-				System.out.println("Car rent data:");
+				System.out.println("\n#Car rent data:");
 				System.out.println("Model: " + model);
 				System.out.println("Start date: " + sdf.format(initalDate));
 				System.out.println("End date: " + sdf.format(endDate));
