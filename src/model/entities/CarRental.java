@@ -4,14 +4,13 @@ import java.util.Date;
 
 public class CarRental {
 
-	private MotorcycleRental m;
 	private Car car;
 	private Date start;
 	private Date finish;
 	
 	public CarRental(Date start, Date finish, Car car) {
-		this.m.start = start;
-		this.m.finish = finish;
+		this.start = start;
+		this.finish = finish;
 		this.car = car;
 	}
 
@@ -21,14 +20,6 @@ public class CarRental {
 
 	public void setCar(Car car) {
 		this.car = car;
-	}
-
-	public MotorcycleRental getM() {
-		return m;
-	}
-
-	public void setM(MotorcycleRental m) {
-		this.m = m;
 	}
 
 	public Date getStart() {
@@ -46,5 +37,4 @@ public class CarRental {
 	public void setFinish(Date finish) {
 		this.finish = finish;
 	}
-
 }
