@@ -20,7 +20,7 @@ public class Program {
 		// Author: Joao Vitor Souza Pioner | Date: 03/06/2021
 		// Last edition:
 		Scanner in = new Scanner(System.in);
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:ss");
 		Vehicle veh = new Vehicle();
 
 		System.out.println("#Rental vehicle system#");
@@ -31,10 +31,11 @@ public class Program {
 			ColorEnum color = ColorEnum.valueOf(in.next());
 			System.out.print("Model: ");
 			String model = in.next();
-			System.out.print("Initial date (DD/MM/YYYY HH:MM): ");
-			Date initalDate = sdf.parse(in.next());
-			System.out.print("End date (DD/MM/YYYY HH:MM): ");
-			Date endDate = sdf.parse(in.next());
+			System.out.print("Initial date (DD/MM/YYYY HH:ss): ");
+			in.nextLine();
+			Date initalDate = sdf.parse(in.nextLine());
+			System.out.print("End date (DD/MM/YYYY HH:ss): ");
+			Date endDate = sdf.parse(in.nextLine());
 			if (veh.checkType(typeVehicle) == true) {
 				MotorcycleRental mr = new MotorcycleRental(initalDate, endDate, new Motorcycle(color, model));
 			} else {
@@ -48,6 +49,12 @@ public class Program {
 				RentalService cs = new RentalService(pricePerDay, pricePerHour, new CarService());
 				
 				cs.calcValueCarRent(cr);
+				
+				System.out.println("Car rent data:");
+				System.out.println("Model: " + model);
+				System.out.println("Start date: " + sdf.format(initalDate));
+				System.out.println("End date: " + sdf.format(endDate));
+				System.out.println("\nTotal R$ " + String.format("%.2f", cs.calcValueCarRent(cr)));
 			}
 		} 
 		catch (ParseException e) {

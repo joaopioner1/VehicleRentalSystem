@@ -34,13 +34,18 @@ public class RentalService {
 		this.valuePerHour = valuePerHour;
 	}
 	
-	public void calcValueCarRent(CarRental cr) {
+	public Double calcValueCarRent(CarRental cr) {
 		Long t1 = cr.getStart().getTime();
 		Long t2 = cr.getFinish().getTime();
 		Double time = (double)(t1 - t2) / 1000 / 60 / 60;
 		
-		if () {
-			
+		Double basicPayment = 0.0;
+		if (time <= 12) {
+			basicPayment = valuePerHour * Math.floor(time);
+		} else {
+			basicPayment = valuePerDay * Math.floor(time);
 		}
+		
+		return basicPayment + ps.interest(basicPayment);
 	}
 }
