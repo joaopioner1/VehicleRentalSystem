@@ -1,5 +1,7 @@
 package model.service;
 
+import model.entities.CarRental;
+
 public class RentalService {
 	
 	private Double valuePerDay;
@@ -33,6 +35,12 @@ public class RentalService {
 	}
 	
 	public void calcValueCarRent(CarRental cr) {
+		Long t1 = cr.getStart().getTime();
+		Long t2 = cr.getFinish().getTime();
+		Double time = (double)(t1 - t2) / 1000 / 60 / 60;
 		
+		if () {
+			
+		}
 	}
 }

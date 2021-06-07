@@ -42,10 +42,12 @@ public class Program {
 				
 				System.out.print("Enter price per hour: ");
 				Double pricePerHour = in.nextDouble();
-				System.out.print("Enter price per day: ");
+				System.out.print("Enter price per day: "); 
 				Double pricePerDay = in.nextDouble();
 				
 				RentalService cs = new RentalService(pricePerDay, pricePerHour, new CarService());
+				
+				cs.calcValueCarRent(cr);
 			}
 		} 
 		catch (ParseException e) {
