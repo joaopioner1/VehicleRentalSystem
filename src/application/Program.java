@@ -19,7 +19,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		// Author: Joao Vitor Souza Pioner | Date: 03/06/2021
-		// Last edition:
+		// Last edition: 08/06/2021 7:45
 		Scanner in = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:ss");
 		Vehicle veh = new Vehicle();
