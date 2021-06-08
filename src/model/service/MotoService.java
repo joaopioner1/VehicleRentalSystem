@@ -1,10 +1,9 @@
 package model.service;
 
-public class CarService implements PaymentService {
+public class MotoService implements PaymentService {
 	
 	@Override
 	public Double tax(Double amount) {
-		return amount * 0.02;
+		return amount * 0.03;
 	}
-	
 }

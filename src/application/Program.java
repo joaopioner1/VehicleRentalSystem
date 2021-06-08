@@ -12,6 +12,7 @@ import model.entities.Motorcycle;
 import model.entities.MotorcycleRental;
 import model.entities.Vehicle;
 import model.service.CarService;
+import model.service.MotoService;
 import model.service.RentalService;
 
 public class Program {
@@ -45,15 +46,15 @@ public class Program {
 				System.out.print("Enter price per day: "); 
 				Double pricePerDay = in.nextDouble();
 				
-				RentalService cs = new RentalService(pricePerDay, pricePerHour, new CarService());
+				RentalService rs = new RentalService(pricePerDay, pricePerHour, new MotoService());
 				
-				cs.calcValueMotRent(mr);
+				rs.calcValueRent(mr);
 				
 				System.out.println("\n#Motocycle rent data:");
 				System.out.println("Model: " + model);
 				System.out.println("Start date: " + sdf.format(initalDate));
 				System.out.println("End date: " + sdf.format(endDate));
-				System.out.println("\nTotal R$ " + String.format("%.2f", cs.calcValueMotRent(mr)));
+				System.out.println("\nTotal R$ " + String.format("%.2f", rs.calcValueRent(mr)));
 			} else {
 				
 				CarRental cr = new CarRental(initalDate, endDate, new Car(color, model));
@@ -63,15 +64,15 @@ public class Program {
 				System.out.print("Enter price per day: "); 
 				Double pricePerDay = in.nextDouble();
 				
-				RentalService cs = new RentalService(pricePerDay, pricePerHour, new CarService());
+				RentalService rs = new RentalService(pricePerDay, pricePerHour, new CarService());
 				
-				cs.calcValueCarRent(cr);
+				rs.calcValueRent(cr);
 				
 				System.out.println("\n#Car rent data:");
 				System.out.println("Model: " + model);
 				System.out.println("Start date: " + sdf.format(initalDate));
 				System.out.println("End date: " + sdf.format(endDate));
-				System.out.println("\nTotal R$ " + String.format("%.2f", cs.calcValueCarRent(cr)));
+				System.out.println("\nTotal R$ " + String.format("%.2f", rs.calcValueRent(cr)));
 			}
 		} 
 		catch (ParseException e) {

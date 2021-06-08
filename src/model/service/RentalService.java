@@ -35,7 +35,7 @@ public class RentalService {
 		this.valuePerHour = valuePerHour;
 	}
 	
-	public Double calcValueCarRent(CarRental cr) {
+	public Double calcValueRent(CarRental cr) {
 		Long t1 = cr.getStart().getTime();
 		Long t2 = cr.getFinish().getTime();
 		Double time = 0.0;
@@ -46,15 +46,15 @@ public class RentalService {
 		}
 		Double basicPayment = 0.0;
 		if (time <= 12) {
-			basicPayment = valuePerHour * Math.floor(time);
+			basicPayment = getValuePerHour() * Math.floor(time);
 		} else {
-			basicPayment = valuePerDay * Math.floor(time / 24);
+			basicPayment = getValuePerDay() * Math.floor(time / 24);
 		}
 		
 		return basicPayment + ps.interest(basicPayment);
 	}
 	
-	public Double calcValueMotRent(MotorcycleRental mr) {
+	public Double calcValueRent(MotorcycleRental mr) {
 		Long t1 = mr.getStart().getTime();
 		Long t2 = mr.getFinish().getTime();
 		Double time = 0.0;
@@ -70,6 +70,6 @@ public class RentalService {
 			basicPayment = valuePerDay * Math.floor(time / 24);
 		}
 		
-		return (basicPayment * 0.01 + ps.interest(basicPayment)) + basicPayment;
+		return (basicPayment * 0.01 + ps.interest(basicPayment + ps.tax(basicPayment))) + basicPayment;
 	}
 }
